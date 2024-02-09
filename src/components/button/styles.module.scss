@@ -1,0 +1,19 @@
+@import "../../main.module.scss";
+
+.btn {
+  @include ButtonPrimary();
+  text-decoration: none;
+}
+.btn:hover {
+  transition: all 150ms ease-in;
+}
+
+// ***** кнопка входа ******
+.btnEnter {
+  color: $btn-color-one;
+  border: 1px solid $btn-border-one;
+}
+.btnEnter:hover {
+  color: $btn-color-three;
+  background: $btn-background-two;
+}

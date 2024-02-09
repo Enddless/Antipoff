@@ -1,0 +1,31 @@
+@import "../../main.module.scss";
+
+.header {
+  height: 265px;
+  background: $header-background-primary;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  justify-content: center;
+}
+.content {
+  @include Grid;
+  justify-items: center;
+  column-gap: 20px;
+  margin: 0 80px;
+}
+.title {
+  color: $header-color-primary;
+  grid-column: span 12;
+
+}
+.subtitle {
+  color: $header-color-secondary;
+  grid-column:  3 / 11;
+  text-align: center;
+}
+.buttonContainer {
+    position: absolute;
+    right:80px;
+    top:32px;
+}

@@ -1,0 +1,56 @@
+//PRIMARY SETTINGS
+$body-background-primary: #fff;
+$body-color-primary: black;
+$body-family-primary: "Roboto";
+@mixin Grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+@mixin H1 {
+  font-size: 64px;
+}
+@mixin H2 {
+  font-size: 20px;
+}
+@mixin Text {
+  font-size: 16px;
+  line-height: 136.2%;
+}
+@mixin TextSmall {
+  font-size: 14px;
+}
+
+//HEADER SETTINGS
+$header-color-primary: #fff; 
+$header-color-secondary: #F8F8F8;
+$header-background-primary: #512689;
+
+//BUTTON SETTINGS
+$btn-background-one: #512689;
+$btn-background-two: #F8F8F8;
+$btn-color-one: #F8F8F8;
+$btn-color-two: black;
+$btn-color-three: #512689;
+
+$btn-boxshadow: #0000004d;
+$btn-border-one: #F8F8F8;
+$btn-border-two: black;
+$input-border: #ffa800;
+
+@mixin ButtonPrimary {
+  display: flex;
+  padding: 9px 16px;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  @include Text;
+  font-weight: 400;
+  background: transparent;
+}
+@mixin ButtonDisabled {
+  background: $gray;
+  cursor: not-allowed;
+}
