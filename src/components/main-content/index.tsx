@@ -97,7 +97,7 @@ function MainContent() {
                     onClick={() => handleFavoriteClick(user.email)}
                   >
                     <svg width="16" height="14" className={classNameList}>
-                      <use xlinkHref={`${sprite}#heart`}></use>
+                      <use href={`${sprite}#heart`}></use>
                     </svg>
                   </div>
                 </div>

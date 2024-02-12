@@ -37,7 +37,7 @@ function Header({ data }: TContentProps) {
             </Link>
             <Link to={AppRoute.Root} className={css.backIcon}>
               <svg width="40" height="40" viewBox="0 0 40 40">
-                <use xlinkHref={`${sprite}#arrowBack`}></use>
+                <use href={`${sprite}#arrowBack`}></use>
               </svg>
             </Link>
 
@@ -78,13 +78,13 @@ function Header({ data }: TContentProps) {
                 viewBox="0 0 40 40"
                 onClick={logoutClick}
               >
-                <use xlinkHref={`${sprite}#logout`}></use>
+                <use href={`${sprite}#logout`}></use>
               </svg>
             </Link>
           ) : (
             <Link to={AppRoute.Authorisation}>
               <svg width="40" height="40" viewBox="0 0 40 40">
-                <use xlinkHref={`${sprite}#logout`}></use>
+                <use href={`${sprite}#logout`}></use>
               </svg>
             </Link>
           )}
