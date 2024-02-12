@@ -41,7 +41,6 @@
     -o-border-radius: 8px;
   }
   input:focus {
-    border: none;
     outline: none;
   }
   .btnContainer {
@@ -73,6 +72,17 @@
   .closeContainer:hover svg {
     stroke: #512689;
     stroke-width: 2px;;
+  }
+  .errorInput {
+    border: 1px solid red;
+    outline: none;
+  }
+  .errorMessage {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    top: 2px;
+    right: 0px;
   }
 
 }

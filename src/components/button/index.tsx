@@ -5,31 +5,29 @@ interface ButtonProps {
   text: string;
   cls?: string;
   onClick?: () => void;
-  //   disabled?: boolean;
+  disabled?: boolean;
 }
 
 const Button = ({
   text,
   cls,
-  //   children,
+  disabled,
   onClick,
 }: ButtonProps) => {
   const enterButton = cls === "btn-enter";
   const regButton = cls === "btn-reg";
   const moreButton = cls === "btn-more";
+  const disabledButton = disabled;
 
   const classNamesList = classNames(css.btn, {
     [css.btnEnter]: enterButton,
     [css.btnReg]: regButton,
     [css.btnMore]: moreButton,
+    [css.btnDisabled]: disabledButton,
   });
 
   return (
-    <button
-      className={classNamesList}
-      onClick={onClick}
-      //   disabled={disabled}
-    >
+    <button className={classNamesList} onClick={onClick} disabled={disabled}>
       {text}
       {moreButton && (
         <svg width="24" height="24" viewBox="0 0 24 24">

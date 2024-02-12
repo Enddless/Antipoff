@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../button";
 import EyeIcon from "../eye-icon";
 import css from "./styles.module.scss";
@@ -6,11 +6,16 @@ import { useAppDispatch } from "../../services/type";
 import { login, registration } from "../../store/thunk/authThunk";
 import { AppRoute } from "../../const/const";
 import { Link, useNavigate } from "react-router-dom";
+import { validMail, validPassword } from "../../services/validate";
 
 function Registration() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showDoublePassword, setShowDoublePassword] = useState(false);
+  const [errorMail, setErrorMail] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
+  const [errorName, setErrorName] = useState("");
+  const [isValidForm, setIsValidForm] = useState(false);
   const [formData, setFormData] = useState({
     usname: "",
     email: "eve.holt@reqres.in",
@@ -39,6 +44,37 @@ function Registration() {
       })
       .then(() => dispatch(login(data)));
   };
+
+  //сообщение ошибки, если не заполнена почта
+  useEffect(() => {
+    const isValidateMail = validMail(formData.email);
+    const isValidatePassword = validPassword(formData.password);
+    if (formData.usname === "") {
+      setErrorName("Введите имя");
+    } else {
+      setErrorName("");
+    }
+    if (!isValidateMail && formData.email !== "") {
+      setErrorMail("Введите корректный email");
+    } else {
+      setErrorMail("");
+    }
+    if (!isValidatePassword && formData.password !== "") {
+      setErrorPassword("Введите корректный пароль");
+    } else {
+      setErrorPassword("");
+    }
+    if (formData.password !== formData.dublPassword) {
+      setErrorPassword("Пароли должны совпадать");
+    } else {
+      setErrorPassword("");
+    }
+    if (isValidateMail && isValidatePassword && formData.usname !== "") {
+      setIsValidForm(true);
+    } else {
+      setIsValidForm(false);
+    }
+  }, [formData]);
 
   return (
     <div className={css.wrapper}>
@@ -70,7 +106,13 @@ function Registration() {
               id="usname"
               onChange={handleChange}
               placeholder="Введите имя"
+              className={
+                errorName && errorName !== "" ? `${css.errorInput}` : ""
+              }
             />
+            {errorName && errorName !== "" && (
+              <span className={css.errorMessage}>{errorName}</span>
+            )}
           </fieldset>
           <fieldset>
             <label htmlFor="email">Электронная почта</label>
@@ -81,7 +123,13 @@ function Registration() {
               value={formData.email}
               onChange={handleChange}
               placeholder="example@mail.ru"
+              className={
+                errorMail && errorMail !== "" ? `${css.errorInput}` : ""
+              }
             />
+            {errorMail && errorMail !== "" && (
+              <span className={css.errorMessage}>{errorMail}</span>
+            )}
           </fieldset>
           <fieldset>
             <label htmlFor="password">Пароль</label>
@@ -91,6 +139,9 @@ function Registration() {
               name="password"
               type={showPassword ? "text" : "password"}
               placeholder="********"
+              className={
+                errorPassword && errorPassword !== "" ? `${css.errorInput}` : ""
+              }
             />
             <div className={css.eyeIcon}>
               <EyeIcon
@@ -98,6 +149,9 @@ function Registration() {
                 togglePasswordVisibility={() => setShowPassword(!showPassword)}
               />
             </div>
+            {errorPassword && errorPassword !== "" && (
+              <span className={css.errorMessage}>{errorPassword}</span>
+            )}
           </fieldset>
 
           <fieldset>
@@ -108,6 +162,9 @@ function Registration() {
               name="dublPassword"
               type={showDoublePassword ? "text" : "password"}
               placeholder="********"
+              className={
+                errorPassword && errorPassword !== "" ? `${css.errorInput}` : ""
+              }
             />
             <div className={css.eyeIcon}>
               <EyeIcon
@@ -120,7 +177,11 @@ function Registration() {
           </fieldset>
         </fieldset>
         <div className={css.btnContainer}>
-          <Button text="Зарегистрироваться" cls="btn-reg" />
+          <Button
+            text="Зарегистрироваться"
+            cls="btn-reg"
+            disabled={!isValidForm}
+          />
         </div>
       </form>
     </div>
