@@ -13,24 +13,7 @@ export const usersSlice = createSlice({
   name: NameSpace.Users,
   initialState,
   reducers: {
-    // toggleFavorite: (state, action) => {
-    //   const userId = action.payload;
-    //   const index = state.favorites.findIndex((user) => user.email === userId);
-    //   if (index !== -1) {
-    //     // если user уже есть в избранном, то удаляем его
-    //     state.favorites.splice(index, 1);
-    //     localStorage.setItem("favorUsers", JSON.stringify(state.favorites));
-    //   } else {
-    //     // если user нет в избранном, то добавляем его
-    //     const userToAdd = (state.usersData?.data || []).find(
-    //       (user) => user.email === userId
-    //     );
-    //     if (userToAdd) {
-    //       state.favorites.push(userToAdd);
-    //       localStorage.setItem("favorUsers", JSON.stringify(state.favorites));
-    //     }
-    //   }
-    // },
+
   },
   extraReducers(builder) {
     builder
@@ -51,4 +34,4 @@ export const usersSlice = createSlice({
       });
   },
 });
-// export const { toggleFavorite } = usersSlice.actions;
+

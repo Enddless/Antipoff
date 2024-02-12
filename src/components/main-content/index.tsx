@@ -70,6 +70,10 @@ function MainContent() {
     localStorage.setItem("favorUsers", JSON.stringify(favoritesData));
     setlocalFavorit(JSON.stringify(favoritesData));
   };
+  const rememberUser = (user: Users, page: number) => {
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    localStorage.setItem("currentPage", JSON.stringify(page));
+  }
 
   return (
     <>
@@ -84,7 +88,7 @@ function MainContent() {
 
               return (
                 <div className={css.card} key={user.email}>
-                  <Link to={`${AppRoute.UserDetail}/${user.id}`}>
+                  <Link to={`${AppRoute.UserDetail}/${user.id}`} onClick={() => rememberUser(user, more)}>
                     <img src={user.avatar} />
                     <h2>{`${user.first_name} ${user.last_name}`}</h2>
                   </Link>

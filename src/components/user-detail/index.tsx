@@ -1,17 +1,22 @@
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../../services/type";
+import { useAppDispatch, useAppSelector } from "../../services/type";
 import css from "./styles.module.scss";
 import Header from "../header";
 import sprite from "../../assets/sprite.svg";
-
+import { useEffect } from "react";
+import { getUsers } from "../../store/thunk/usersThunk";
 
 function UserDetail() {
   const id = useParams().id;
-
+  const dispatch = useAppDispatch();
   const usersData = useAppSelector((state) => state.users.usersData)?.data;
   const userFound = usersData?.find((item) => item.id === Number(id));
-
-
+  const page = localStorage.getItem("currentPage");
+  useEffect(() => {
+    if (page) {
+      dispatch(getUsers(JSON.parse(page)));
+    }
+  }, [dispatch, page]);
 
   return (
     <>
