@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../services/type";
 import css from "./styles.module.scss";
 import { getUsers } from "../../store/thunk/usersThunk";
 import Button from "../button";
-import sprite from "../../assets/sprite.svg";
+import sprite from "/Antipoff/src/assets/sprite.svg";
 import { Link } from "react-router-dom";
 import { AppRoute, AuthorizationStatus } from "../../const/const";
 import classNames from "classnames";
