@@ -28,7 +28,7 @@ export enum AppRoute {
   Authorisation = "/Antipoff/authorisation",
   Registration = "/Antipoff/registration",
   Login = "/Antipoff/login",
-  UserDetail = "/Antipoff/user-detail",
+  UserDetail = "/Antipoff/user-detail/",
   NotFound = "/Antipoff/*",
 }
 
