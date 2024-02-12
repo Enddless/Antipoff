@@ -17,3 +17,26 @@
   color: $btn-color-three;
   background: $btn-background-two;
 }
+
+// ***** кнопка регистрации******
+.btnReg {
+  background: $btn-background-one;
+  color: $btn-color-one;
+  border: 1px solid $btn-background-one;
+}
+.btnReg:hover {
+  color: $btn-color-three;
+  background: $btn-background-two;
+  border: 1px solid $btn-background-one;
+}
+
+// ***** кнопка показать еще ******
+.btnMore {
+  border: 1px solid $btn-border-two;
+}
+.btnMore:hover {
+  color: $btn-color-three;
+  background: $btn-background-two;
+  border: 1px solid $btn-background-one;
+}
+

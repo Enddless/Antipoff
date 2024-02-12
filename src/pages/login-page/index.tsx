@@ -1,10 +1,12 @@
+import Login from "../../components/form-login";
+import css from "./styles.module.scss";
 
 function LoginPage() {
-    return (
-        <div>
-            LoginPage
-        </div>
-    )
+  return (
+    <div className={css.wrapper}>
+      <Login />
+    </div>
+  );
 }
 
-export default LoginPage
+export default LoginPage;

@@ -1,0 +1,21 @@
+@import "../../main.module.scss";
+
+.container {
+  @include Grid;
+  margin: 49px 80px;
+}
+.info {
+  grid-column: 2 / span 6;
+  @include Text;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+.contacts {
+  grid-column: 9 / span 2;
+  p {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+  }
+}

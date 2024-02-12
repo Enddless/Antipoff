@@ -1,5 +1,6 @@
 import css from "./styles.module.scss";
 import classNames from "classnames";
+import sprite from "../../assets/sprite.svg";
 
 interface ButtonProps {
   text: string;
@@ -15,9 +16,13 @@ const Button = ({
   onClick,
 }: ButtonProps) => {
   const enterButton = cls === "btn-enter";
+  const regButton = cls === "btn-reg";
+  const moreButton = cls === "btn-more";
 
   const classNamesList = classNames(css.btn, {
     [css.btnEnter]: enterButton,
+    [css.btnReg]: regButton,
+    [css.btnMore]: moreButton,
   });
 
   return (
@@ -27,6 +32,11 @@ const Button = ({
       //   disabled={disabled}
     >
       {text}
+      {moreButton && (
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <use xlinkHref={`${sprite}#more`}></use>
+        </svg>
+      )}
     </button>
   );
 };

@@ -7,6 +7,8 @@
   flex-direction: column;
   row-gap: 16px;
   justify-content: center;
+  position: relative;
+  color: $header-color-primary;
 }
 .content {
   @include Grid;
@@ -15,17 +17,41 @@
   margin: 0 80px;
 }
 .title {
-  color: $header-color-primary;
   grid-column: span 12;
-
 }
 .subtitle {
   color: $header-color-secondary;
-  grid-column:  3 / 11;
+  grid-column: 3 / 11;
   text-align: center;
 }
 .buttonContainer {
-    position: absolute;
-    right:80px;
-    top:32px;
+  position: absolute;
+  right: 80px;
+  top: 38px;
+}
+.user {
+  grid-column: 2 / 4;
+  height: 187px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+}
+.userInfo {
+  width: 100%;
+  grid-column: 4 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  row-gap: 16px;
+}
+.cpecialithy {
+  font-size:32px;
 }

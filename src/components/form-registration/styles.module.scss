@@ -1,0 +1,78 @@
+@import "../../main.module.scss";
+.wrapper {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.regForm {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 20px rgba($color: #000000, $alpha: .08);
+  position: relative;
+
+  .title {
+    margin-bottom: 16px;
+  }
+  fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    position: relative;
+  }
+  label {
+    @include Text;
+  }
+  input {
+    padding: 16px;
+    background: #f8f8f8;
+    border: none;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+  }
+  input:focus {
+    border: none;
+    outline: none;
+  }
+  .btnContainer {
+    margin-top:8px;
+    button {
+        width:100%;
+    }
+  }
+  .eyeIcon {
+    position: absolute;
+    right: 18px;
+    top: 53px;
+    cursor: pointer;
+  }
+  /* удаление иконки отображения пароля в IE */
+  input[type="password"]::-ms-reveal {
+    display: none;
+  }
+  .closeContainer {
+    z-index:10;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    svg {
+      stroke: black;
+    }
+  }
+  .closeContainer:hover svg {
+    stroke: #512689;
+    stroke-width: 2px;;
+  }
+
+}
