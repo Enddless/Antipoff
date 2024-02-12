@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../services/type";
 import { Users } from "../../types/sliceTypes";
 import { logout } from "../../store/thunk/usersThunk";
 import { authSlice } from "../../store/auth";
-import sprite from "/Antipoff/src/assets/sprite.svg";
+import sprite from "/src/assets/sprite.svg";
 
 type TContentProps = {
   data?: Users;
