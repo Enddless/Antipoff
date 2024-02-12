@@ -24,11 +24,11 @@ export enum APIRoute {
 }
 
 export enum AppRoute {
-  Root = "/",
-  Authorisation = "/authorisation",
-  Registration = "/registration",
-  Login = "/login",
-  UserDetail = "/user-detail",
-  NotFound = "/*",
+  Root = "/Antipoff",
+  Authorisation = "/Antipoff/authorisation",
+  Registration = "/Antipoff/registration",
+  Login = "/Antipoff/login",
+  UserDetail = "/Antipoff/user-detail",
+  NotFound = "/Antipoff/*",
 }
 
