@@ -6,7 +6,6 @@ import { useAppDispatch } from "../../services/type";
 import { login } from "../../store/thunk/authThunk";
 import { AppRoute } from "../../const/const";
 import { Link, useNavigate } from "react-router-dom";
-import sprite from "../../assets/sprite.svg";
 
 function Login() {
   const navigate = useNavigate();
@@ -43,7 +42,18 @@ function Login() {
     <form className={css.authForm} onSubmit={handleSubmit}>
       <Link to={AppRoute.Root} className={css.closeContainer}>
         <svg width="14" height="14" viewBox="0 0 14 14">
-          <use xlinkHref={`${sprite}#close`}></use>
+          <g>
+            <path
+              d="M13.5 0.5L0.5 13.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M0.5 0.5L13.5 13.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
         </svg>
       </Link>
       <fieldset>

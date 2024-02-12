@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from "../../services/type";
 import css from "./styles.module.scss";
 import { getUsers } from "../../store/thunk/usersThunk";
 import Button from "../button";
-import sprite from "/src/assets/sprite.svg";
 import { Link } from "react-router-dom";
 import { AppRoute, AuthorizationStatus } from "../../const/const";
 import classNames from "classnames";
@@ -46,7 +45,6 @@ function MainContent() {
     }
   }, [dispatch, more, authStatus]);
 
-
   const handleFavoriteClick = (userId: string) => {
     const index = favoritesData.findIndex(
       (user: Users) => user.email === userId
@@ -73,7 +71,7 @@ function MainContent() {
   const rememberUser = (user: Users, page: number) => {
     localStorage.setItem("currentUser", JSON.stringify(user));
     localStorage.setItem("currentPage", JSON.stringify(page));
-  }
+  };
 
   return (
     <>
@@ -81,14 +79,19 @@ function MainContent() {
         <>
           <div className={css.wrapper}>
             {usersState?.map((user) => {
-              const isFavorite = favoritesData.length > 0 && favoritesData.find((item: Users) => item.email === user.email);
+              const isFavorite =
+                favoritesData.length > 0 &&
+                favoritesData.find((item: Users) => item.email === user.email);
               const classNameList = classNames(css.primary, {
                 [css.favor]: isFavorite,
               });
 
               return (
                 <div className={css.card} key={user.email}>
-                  <Link to={`${AppRoute.UserDetail}/${user.id}`} onClick={() => rememberUser(user, more)}>
+                  <Link
+                    to={`${AppRoute.UserDetail}/${user.id}`}
+                    onClick={() => rememberUser(user, more)}
+                  >
                     <img src={user.avatar} />
                     <h2>{`${user.first_name} ${user.last_name}`}</h2>
                   </Link>
@@ -97,7 +100,13 @@ function MainContent() {
                     onClick={() => handleFavoriteClick(user.email)}
                   >
                     <svg width="16" height="14" className={classNameList}>
-                      <use href={`${sprite}#heart`}></use>
+                      <g>
+                        <path
+                          d="M4.85 1C2.72375 1 1 2.72173 1 4.84548C1 8.69096 5.55 12.1869 8 13C10.45 12.1869 15 8.69096 15 4.84548C15 2.72173 13.2762 1 11.15 1C9.848 1 8.6965 1.64569 8 2.63398C7.64499 2.1289 7.17336 1.71669 6.62504 1.43226C6.07672 1.14784 5.46785 0.999565 4.85 1Z"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </g>
                     </svg>
                   </div>
                 </div>
