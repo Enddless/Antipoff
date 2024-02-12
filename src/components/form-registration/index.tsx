@@ -19,8 +19,8 @@ function Registration() {
   const [formData, setFormData] = useState({
     usname: "",
     email: "eve.holt@reqres.in",
-    password: "pistol",
-    dublPassword: "pistol",
+    password: "",
+    dublPassword: "",
   });
   const handleChange = (e: { target: { name: string; value: string } }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
