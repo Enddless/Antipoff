@@ -1,7 +1,7 @@
 @import "../../main.module.scss";
 
 .wrapper {
-  margin: 48px 80px;
+  margin: 48px 50px;
   @include Grid;
   gap: 20px;
 }
@@ -22,7 +22,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    row-gap: 16px;
+    row-gap: 15px;
   }
   img {
     width: 125px;
@@ -56,7 +56,7 @@
 }
 .favor {
   stroke: #512689;
-  fill:#512689;
+  fill: #512689;
 }
 .atentionBlock {
   font-size: 24px;
@@ -69,9 +69,19 @@
   text-align: center;
 }
 .buttonContainer {
-  margin:0 auto;
+  margin: 7px auto;
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom:10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .card {
+    grid-column: span 6;
+  }
+}
+@media screen and (max-width: 600px) {
+  .card {
+    grid-column: span 12;
+  }
 }

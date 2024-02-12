@@ -86,7 +86,7 @@ function MainContent() {
                 <div className={css.card} key={user.email}>
                   <Link to={`${AppRoute.UserDetail}/${user.id}`}>
                     <img src={user.avatar} />
-                    <p>{`${user.first_name} ${user.last_name}`}</p>
+                    <h2>{`${user.first_name} ${user.last_name}`}</h2>
                   </Link>
                   <div
                     className={css.decoration}
