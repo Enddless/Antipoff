@@ -49,8 +49,8 @@ function Registration() {
   useEffect(() => {
     const isValidateMail = validMail(formData.email);
     const isValidatePassword = validPassword(formData.password);
-    if (formData.usname === "") {
-      setErrorName("Введите имя");
+    if (formData.usname !=="" && formData.usname.length < 6) {
+      setErrorName("Минимум из 6 знаков");
     } else {
       setErrorName("");
     }
@@ -69,7 +69,7 @@ function Registration() {
     } else {
       setErrorPassword("");
     }
-    if (isValidateMail && isValidatePassword && formData.usname !== "") {
+    if (isValidateMail && isValidatePassword && formData.usname.length >= 6) {
       setIsValidForm(true);
     } else {
       setIsValidForm(false);
